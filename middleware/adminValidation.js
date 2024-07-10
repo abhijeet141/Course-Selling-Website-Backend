@@ -22,7 +22,7 @@ async function adminValidation(req,res,next){
         })
         if(existingUser){
             res.status(404).json({
-                message: "User already exists please LogIn"
+                message: "Admin already exists please LogIn"
             })
         }
         else{

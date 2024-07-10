@@ -36,7 +36,7 @@ Used mongodb to store all the data persistently.
 
 - POST /users/signup
   Description: Creates a new user account.
-  Input: { username: 'user', password: 'pass' }
+  Input: { userEmail: 'user', password: 'pass' }
   Output: { message: 'User created successfully' }
 - POST /users/signin
   Description: Logs in a user account.

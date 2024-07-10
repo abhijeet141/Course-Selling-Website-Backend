@@ -26,9 +26,13 @@ router.post('/signup', adminValidation, (req, res) => {
 router.post('/signin', async(req,res) => {
     const adminEmail = req.body.adminEmail;
     const password = req.body.password;
-    const response = Admin.findOne({
-        adminEmail: adminEmail
+    const hashedPassword = hash(password);
+    console.log(hashedPassword);
+    const response = await Admin.findOne({
+        adminEmail: adminEmail,
+        password: hashedPassword
     })
+    console.log(response);
     if(response){
         const tokenId = jwt.sign({
             adminEmail: adminEmail
@@ -39,7 +43,7 @@ router.post('/signin', async(req,res) => {
     }
     else{
         res.status(403).json({
-            message: "User not found"
+            message: "Wrong Email or Password"
         })
     }
 })
