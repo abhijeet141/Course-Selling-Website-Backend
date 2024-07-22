@@ -1,10 +1,6 @@
 const mongoose = require('mongoose')
 
-require('dotenv').config()
-
-const URL = process.env.DatabaseUrl
-
-mongoose.connect(URL)
+mongoose.connect('mongodb+srv://admin:rohit264eden@cluster0.p3o99vc.mongodb.net/courseSellingApplication')
 
 const AdminSchema = new mongoose.Schema({
     name: String,
